@@ -42,6 +42,7 @@ TH1D GenerateDataFromExpectation(double ExpSignal,double ExpBkg,double xmin = -1
 // scans -logL around the minimum for the Nsignal parameter (+- 3 sigma_fit) and returns TGraph of -2logL (profile-likelihood-ratio)
 // COMMENT: By def. the prof. likelihood ratio is -2log{L(Ns,nuisance^^)/L(Ns^,nuisance^)} = -2logL(Ns,nuisance^^) + cost --> drop the cost.
 // Fills Nsignal_best_fit with the signal value that minimizes -2logL
+int gScanLogL; // global variable modified @ each execution of ScanLogL: 0 = main fit error -> discard result // 1 = main fit OK
 TGraph ScanLogL(double ExpSignal,double ExpBkg,Double_t& Nsignal_best_fit,bool produceplot = false,bool debug = false,double xmin = -10.,double xmax = 10.,int nbin = 200)
 {
 	
@@ -71,7 +72,15 @@ TGraph ScanLogL(double ExpSignal,double ExpBkg,Double_t& Nsignal_best_fit,bool p
 	TFitResultPtr fitresult = h_data.Fit(&f_fit,"QSRL"); // Q = quiet S = get res R = range of TH1 L = likelihood
 	Int_t fit_status_code; // this is 0 if the fit is ok, else see documentation https://root.cern.ch/doc/master/classTH1.html (Fit Status)
 	fit_status_code = (Int_t) fitresult;
-	if(fit_status_code != 0)cout << "[ScanLogL] ERROR in main fit! ExpSignal = " << ExpSignal << " ExpBkg = " << ExpBkg << endl;
+	TGraph fake; // will be returned only in case of failure of primary fit
+	if(fit_status_code != 0)
+	{
+		cerr << "[ScanLogL] ERROR in main fit! ExpSignal = " << ExpSignal << " ExpBkg = " << ExpBkg << endl;
+		gScanLogL = 0;
+		return fake;
+	}else{
+		gScanLogL = 1;
+	}
 	fcn_min = fitresult->MinFcnValue(); // get -logL value @ minimum
 	Fb = fitresult->Parameter(0);
 	Fb_err = fitresult->ParError(0);
@@ -144,6 +153,7 @@ bool CheckCoverage(double CL,double ExpSignal,double ExpBkg,bool ProducePlot=fal
 	}
 	Double_t best_fit_signal; // will be filled by ScanLogL
 	TGraph profile_likelihood_ratio = ScanLogL(ExpSignal,ExpBkg,best_fit_signal,ProducePlot,VerboseDebug,xmin,xmax,nbin);
+	if(gScanLogL==0)return false; // global fit has failed!
 	//if(ProducePlot)profile_likelihood_ratio.DrawClone("AP");
 	int npts = profile_likelihood_ratio.GetN(); // store here the # of points in the graph
 	Double_t ll_min = profile_likelihood_ratio.Eval(best_fit_signal);
@@ -235,6 +245,7 @@ void exe(int Nb,bool debug)
 	
 	int nhit;
 	int ntot = 1e4;
+	int nfail = 0; // times the global fit has failed
 	TGraphErrors gr_coverage;
 	double p;
 	int i,jj;
@@ -246,6 +257,7 @@ void exe(int Nb,bool debug)
 		for(i=0;i<ntot;i++)
 		{
 			if( CheckCoverage(0.9,Ns,Nb) )nhit++;
+			if( gScanLogL == 0)nfail++;
 			if((i+1)%100==0 && debug)cout << "[EXE] DEBUG: Sub-iteration i / ntot = " << i+1 << " / " << ntot << endl;
 		}
 		p = nhit/(double)ntot;
@@ -267,32 +279,16 @@ void exe(int Nb,bool debug)
 void ComputeCoverage(double CL,double Ns,double Nb,int Ntry,bool debug=false)
 {
 	int Nhit = 0;
+	int nfail = 0;
 	int i;
 	for(i=0;i<Ntry;i++)
 	{
 		if(debug)cout << "[ComputeCoverage] DEBUG: " << i << "/" << Ntry << " iterations." << endl;
 		if( CheckCoverage(CL,Ns,Nb) )Nhit++;
+		if( gScanLogL == 0)nfail++;
 	}
-	double c = Nhit/(double)Ntry; // coverage
+	double c = Nhit/(double)(Ntry-nfail); // coverage
 	cout << Ns << "," << c << endl;
-	cout << "Coverage error: " << sqrt(c*(1.-c))/sqrt(Ntry) << endl;
-}
-
-void bug()
-{
-	cout << "Looking for a bug in 23rd iteration of CheckCoverage(0.9,10,100)" << endl; // bug 23 fixed!
-	for(int i = 0;i<23;i++){
-		CheckCoverage(0.9,10,100);
-		cout << "[bug()] i = " << i << endl;
-	}
-	CheckCoverage(0.9,10,100,true,true);
-}
-
-void emptybinbug() // check what happens when you extract 0 signal events && 0 bkg events
-{
-	CheckCoverage(0.9,.1,1.);
-	CheckCoverage(0.9,.1,1.);
-	CheckCoverage(0.9,.1,1.);
-	bool result = 	CheckCoverage(0.9,.1,1.);// <<--- this!!
-	cout << "result = " << result << endl; // result = 1
+	cout << "Coverage error: " << sqrt(c*(1.-c))/sqrt(Ntry-nfail) << endl;
+	cout << "Coverage systematics (#fit-fails/#fit-tot) " << nfail/(double)Ntry << endl;
 }
