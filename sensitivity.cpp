@@ -8,7 +8,7 @@ TGraph ScanLogL(double ExpSignal,double ExpBkg,Double_t& Nsignal_best_fit,bool p
 // -> Builds histo of profileL(TestSignal)-profileL(BestFit) repeating the procedure NumToyMC times
 TH1D BuildTestStatisticsHisto(double ExpSignal,double ExpBkg,double TestSignal,const int NumToyMC,bool debug = false)
 {
-	TH1D hist_teststat("","",100,0.,10.); // no-name histo prevents memory leak (?)
+	TH1D hist_teststat("","",1000,0.,10.); // no-name histo prevents memory leak (?)
 	TGraph profileL;
 	int i,j;
 	Double_t best_fit_signal;
