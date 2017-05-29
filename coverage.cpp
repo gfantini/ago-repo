@@ -164,12 +164,24 @@ bool CheckCoverage(double CL,double ExpSignal,double ExpBkg,bool ProducePlot=fal
 	double sig_now = sig_min+sig_step;
 	int flagmin = 0;
 	int flagmax = 0;
+	int flagzero = 0;
 	while(sig_now < sig_max)
 	{
-		if(VerboseDebug)cout << "[CheckCoverage] DEBUG: sig_now / diff(now-min) = " << sig_now << " / " << diff << endl;
+		if(sig_now < 0.)
+		{// always start the scan from 0.
+			sig_now = 0.;
+			if(profile_likelihood_ratio.Eval(sig_now)-ll_min <= ll_threshold)
+			{ // if already below threshold -> set minimum here
+				flagzero++;
+				sig_min = 0.;
+				flagmin++;
+				if(VerboseDebug)cout << "[CheckCoverage] DEBUG: set minimum to 0." << endl;
+			}
+		}
 		diff_old=profile_likelihood_ratio.Eval(sig_now-sig_step)-ll_min;
 		diff=profile_likelihood_ratio.Eval(sig_now)-ll_min;
-		if(diff_old >= ll_threshold && diff <= ll_threshold)
+		if(VerboseDebug)cout << "[CheckCoverage] DEBUG: sig_now / diff(now-min) = " << sig_now << " / " << diff << endl;
+		if(diff_old >= ll_threshold && diff <= ll_threshold && flagzero == 0)
 		{
 			// update minimum of interval
 			// this should happen only once
@@ -181,7 +193,7 @@ bool CheckCoverage(double CL,double ExpSignal,double ExpBkg,bool ProducePlot=fal
 			// update maximum of interval
 			// this should happen only once
 			flagmax++;
-			sig_max = sig_now;
+			sig_max = sig_now; // (set maximum + exit loop)
 		}
 		sig_now += sig_step;
 	}
@@ -262,11 +274,10 @@ void ComputeCoverage(double CL,double Ns,double Nb,int Ntry)
 void bug()
 {
 	cout << "Looking for a bug in 23rd iteration of CheckCoverage(0.9,10,100)" << endl;
-	for(int i = 0;i<18;i++){
+	for(int i = 0;i<22;i++){
 		CheckCoverage(0.9,10,100);
 		cout << "[bug()] i = " << i << endl;
 	}
 	CheckCoverage(0.9,10,100,true,true);
-	// 1st point of likelihood scan screwed up
 	// why error is so big? --> interval of TGraph so big? (this can affect the step)
 }
