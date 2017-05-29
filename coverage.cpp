@@ -283,7 +283,7 @@ void ComputeCoverage(double CL,double Ns,double Nb,int Ntry,bool debug=false)
 	int i;
 	for(i=0;i<Ntry;i++)
 	{
-		if(debug)cout << "[ComputeCoverage] DEBUG: " << i << "/" << Ntry << " iterations." << endl;
+		if(debug && i%100 == 0)cout << "[ComputeCoverage] DEBUG: " << i+1 << "/" << Ntry << " iterations." << endl;
 		if( CheckCoverage(CL,Ns,Nb) )Nhit++;
 		if( gScanLogL == 0)nfail++;
 	}
