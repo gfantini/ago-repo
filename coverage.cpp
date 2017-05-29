@@ -85,17 +85,20 @@ TGraph ScanLogL(double ExpSignal,double ExpBkg,Double_t& Nsignal_best_fit,bool p
 	
 	if(debug)
 	{
-		cout << "SIGNAL: " << Fs << " +- " << Fs_err << endl;
-		cout << "BACKGROUND: " << Fb << " +- " << Fb_err << endl;
-		cout << "FCN: " << fcn_min << endl;
+		cout << "[ScanLogL] DEBUG: SIGNAL(fit): " << Fs << " +- " << Fs_err << endl;
+		cout << "[ScanLogL] DEBUG: BACKGROUND(fit): " << Fb << " +- " << Fb_err << endl;
+		cout << "[ScanLogL] DEBUG: FCN(fit): " << fcn_min << endl;
 	}
 	// write result of the best fit value for the signal component
 	Nsignal_best_fit = Fs;
 	// scan the likelihood for the signal
 	vector <double> alternate_signal;
 	vector <double> alternate_fcn;
-	double step = TMath::Min(Fs_err/20.,sqrt(TMath::Abs(Fs))/20. ); // define step for scanning likelihood
+	double step = TMath::Min(Fs_err/20.,0.5); // define step for scanning likelihood
+	
 	double alternate_signal_tmp = Fs - 10.*Fs_err; // define starting point for scanning likelihood
+	if(debug)cout << "[ScanLogL] DEBUG: Fs_err = " << Fs_err << "Fs = " << Fs << endl;
+	if(debug)cout << "[ScanLogL] DEBUG: while: init=" << alternate_signal_tmp << " step=" << step << " max=" << Fs + 10.*Fs_err << endl;
 	while(alternate_signal_tmp < Fs + 10.*Fs_err)
 	{
 		// fix the signal to the alternate_value
@@ -140,15 +143,15 @@ bool CheckCoverage(double CL,double ExpSignal,double ExpBkg,bool ProducePlot=fal
 		CL = .9;
 	}
 	Double_t best_fit_signal; // will be filled by ScanLogL
-	TGraph profile_likelihood_ratio = ScanLogL(ExpSignal,ExpBkg,best_fit_signal,ProducePlot,false,xmin,xmax,nbin);
+	TGraph profile_likelihood_ratio = ScanLogL(ExpSignal,ExpBkg,best_fit_signal,ProducePlot,VerboseDebug,xmin,xmax,nbin);
 	//if(ProducePlot)profile_likelihood_ratio.DrawClone("AP");
 	int npts = profile_likelihood_ratio.GetN(); // store here the # of points in the graph
 	Double_t ll_min = profile_likelihood_ratio.Eval(best_fit_signal);
 	Double_t ll_threshold = TMath::ChisquareQuantile(CL,1);
 	if(VerboseDebug)
 	{
-		cout << "[CheckCoverage] DEBUG: ll_threshold = "<< ll_threshold << endl;
-		cout << "[CheckCoverage] DEBUG: ll_min = "<< ll_threshold << endl;
+		cout << "[CheckCoverage] DEBUG: (delta)ll_threshold = "<< ll_threshold << endl;
+		cout << "[CheckCoverage] DEBUG: ll_min = "<< ll_min << endl;
 		cout << "[CheckCoverage] DEBUG: par_min = " << profile_likelihood_ratio.GetX()[0] << endl;
 		cout << "[CheckCoverage] DEBUG: par_max = " << profile_likelihood_ratio.GetX()[npts-1] << endl;
 
@@ -236,7 +239,7 @@ void exe(int Nb,bool debug)
 	double p;
 	int i,jj;
 	jj=0;
-	for(int Ns:{10,100,500,1000})
+	for(int Ns:{5,10,100,500,1000})
 	{
 		if(debug)cout << "[EXE] DEBUG: Iteration Ns = " << Ns << endl;
 		nhit = 0;
@@ -261,11 +264,15 @@ void exe(int Nb,bool debug)
 // Ntry -> number of repetitions
 // prints out some numbers: Ns, coverage
 // on another line: err-coverage (1/sqrt(Ntry) * sqrt(coverage*(1-coverage)))
-void ComputeCoverage(double CL,double Ns,double Nb,int Ntry)
+void ComputeCoverage(double CL,double Ns,double Nb,int Ntry,bool debug=false)
 {
 	int Nhit = 0;
 	int i;
-	for(i=0;i<Ntry;i++)if( CheckCoverage(CL,Ns,Nb) )Nhit++;
+	for(i=0;i<Ntry;i++)
+	{
+		if(debug)cout << "[ComputeCoverage] DEBUG: " << i << "/" << Ntry << " iterations." << endl;
+		if( CheckCoverage(CL,Ns,Nb) )Nhit++;
+	}
 	double c = Nhit/(double)Ntry; // coverage
 	cout << Ns << "," << c << endl;
 	cout << "Coverage error: " << sqrt(c*(1.-c))/sqrt(Ntry) << endl;
@@ -273,11 +280,19 @@ void ComputeCoverage(double CL,double Ns,double Nb,int Ntry)
 
 void bug()
 {
-	cout << "Looking for a bug in 23rd iteration of CheckCoverage(0.9,10,100)" << endl;
-	for(int i = 0;i<22;i++){
+	cout << "Looking for a bug in 23rd iteration of CheckCoverage(0.9,10,100)" << endl; // bug 23 fixed!
+	for(int i = 0;i<23;i++){
 		CheckCoverage(0.9,10,100);
 		cout << "[bug()] i = " << i << endl;
 	}
 	CheckCoverage(0.9,10,100,true,true);
-	// why error is so big? --> interval of TGraph so big? (this can affect the step)
+}
+
+void emptybinbug() // check what happens when you extract 0 signal events && 0 bkg events
+{
+	CheckCoverage(0.9,.1,1.);
+	CheckCoverage(0.9,.1,1.);
+	CheckCoverage(0.9,.1,1.);
+	bool result = 	CheckCoverage(0.9,.1,1.);// <<--- this!!
+	cout << "result = " << result << endl; // result = 1
 }
