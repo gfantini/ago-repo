@@ -1,0 +1,19 @@
+root [1] PrintThresholdAndSensitivity(1,1000,1,1e5,false,true);
+#B 	1000
+#SB 	1	1.61887
+#-B 	1	0.974708	0.842002	0.508048	0.177326	0.0288648
+
+root [2] PrintThresholdAndSensitivity(10,1000,10,1e5,false,true);
+#B 	1000	
+#SB 	10	2.10111
+#-B 	10	0.967356	0.799352	0.401576	0.121666	0.0390699
+
+root [1] PrintThresholdAndSensitivity(100,1000,100,1e5,false,true);
+#B 	1000
+#SB 	100	2.69701
+#-B 	100	3.00051e-05	0	0	0	0	
+
+root [1] PrintThresholdAndSensitivity(1000,1000,1000,1e5,false,true);
+#B 	1000
+#SB 	1000	2.68302
+#-B 	1000	0		0	0	0	0	

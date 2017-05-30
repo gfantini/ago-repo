@@ -1,6 +1,12 @@
-# Agostini Exercise 1
+# Corso GSSI di Matteo Agostini
 
-## sub-heading
+## Code structure
+
+src folder contains ROOT macros
+tex folder contains latex
+out folder contains results
+
+## Exercise 1
 
 This is a markdown readme file.
 

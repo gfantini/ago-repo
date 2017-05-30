@@ -1,0 +1,44 @@
+-bash-4.2$ more log2.log 
+
+Processing ComputeCoverage.cpp(.9,.1,100.,1e4)...
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+[ScanLogL] ERROR in main fit! ExpSignal = 0.1 ExpBkg = 100
+0.1,0.950015
+Coverage error: 0.00218318
+Coverage systematics (#fit-fails/#fit-tot) 0.0037

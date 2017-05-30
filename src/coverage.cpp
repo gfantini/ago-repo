@@ -43,7 +43,7 @@ TH1D GenerateDataFromExpectation(double ExpSignal,double ExpBkg,double xmin = -1
 // COMMENT: By def. the prof. likelihood ratio is -2log{L(Ns,nuisance^^)/L(Ns^,nuisance^)} = -2logL(Ns,nuisance^^) + cost --> drop the cost.
 // Fills Nsignal_best_fit with the signal value that minimizes -2logL
 int gScanLogL; // global variable modified @ each execution of ScanLogL: 0 = main fit error -> discard result // 1 = main fit OK
-TGraph ScanLogL(double ExpSignal,double ExpBkg,Double_t& Nsignal_best_fit,bool produceplot = false,bool debug = false,double xmin = -10.,double xmax = 10.,int nbin = 200)
+TGraph ScanLogL(double ExpSignal,double ExpBkg,Double_t& Nsignal_best_fit,bool produceplot = false,bool debug = false,double xmin = -10.,double xmax = 10.,int nbin=200)
 {
 	
 	TH1D h_data = GenerateDataFromExpectation(ExpSignal,ExpBkg,xmin,xmax,nbin);

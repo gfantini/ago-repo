@@ -1,0 +1,85 @@
+\documentclass[10pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{amsmath} %GF
+\usepackage{siunitx} %VZ
+%\usepackage{bbold} %VZ
+
+\usepackage{framed} % GF serve a mettere la caption a roba che non è table o image
+\usepackage{listings}
+\usepackage{textcomp}
+\lstset{
+    tabsize=4,    
+%   rulecolor=,
+    language=C++,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=false,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        numbers=left,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.026,0.112,0.095},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+        numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+%        \lstdefinestyle{C++}{language=C++,style=numbers}’.
+}
+
+\title{GSSI - statistical and software tools for data analysis (M. Agostini)}
+\author{Guido Fantini}
+\date{}							% Activate to display a given date or no date
+
+\usepackage{color}
+
+\newcommand{\vz}[1]{{\sf\leavevmode\color{magenta}#1}}
+\newcommand{\fv}[1]{{\bf\leavevmode\color{cyan}#1}}
+\newcommand{\gf}[1]{{\sc\leavevmode\color{blue}#1}}
+
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+
+\newpage
+\tableofcontents %\newpage
+
+\newpage %
+
+\section{Coverage}
+
+Let us consider a toy analysis where the distribution of the observable quantity $x$ in both the signal and the background hypothesis is known.
+The observable is defined in the range $(-10,10)$ and its probability density function in the two cases is
+$$ f_s(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \quad \mathrm{where} \quad \mu = 0 \:\: \sigma = 1 $$
+$$ f_b(x) = \frac{1}{20} $$
+
+A frequentist analysis is performed for different combinations of \textit{true} signal and background expected counts in order to extract a confidence interval for the signal at $90% C.L.$. A coverage test is performed in each expected background condition as a function of the expected signal count and an overcoverage is observed when the \textit{true} number of signal events is below the sensitivity defined by the background. 
+
+\subsection{Procedure}
+Let us define the \textit{true} expected number of signal (background) events as $S (B)$.
+Two background conditions were simulated: $B = 1$ (low background) and $B = 100$ (high background).
+For each of these conditions a set of \textit{true} $S$ values was set and the following procedure was performed in order to get an estimate of the number of signal and background counts $\hat{S}$ and $\hat{B}$ respectively:
+\begin{itemize}
+\item two random numbers $N_s$ and $N_b$ were extracted according to a Poisson distribution of parameter $S$ and $B$ respectively. Being a random process, even when the expected number of signal and background events is known exactly, the actual number of signal and background realizations fluctuates;
+\item $N_s$ events (i.e. realizations of the random variable $x$ in the signal hypothesis) were generated from the $f_s$ distribution and added to an histogram
+\item $N_b$ events were generated from the $f_b$ distribution and added to the same histogram
+\end{itemize}
+
+\end{document}
+
+%---------------------------------------------------------------------------------
