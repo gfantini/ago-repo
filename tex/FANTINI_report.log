@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.31)  30 MAY 2017 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.31)  31 MAY 2017 17:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -730,7 +730,7 @@ Package pdftex.def Info: Ex1_b1.pdf used on input line 109.
 (pdftex.def)             Requested size: 430.00462pt x 201.35316pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <Ex1_b100.pdf, id=28, 509.60345pt x 238.17863pt>
 File: Ex1_b100.pdf Graphic file (type pdf)
@@ -739,7 +739,7 @@ Package pdftex.def Info: Ex1_b100.pdf used on input line 116.
 (pdftex.def)             Requested size: 430.00462pt x 200.97725pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <Events_S1B1000.pdf, id=29, 569.12625pt x 387.4475pt>
 File: Events_S1B1000.pdf Graphic file (type pdf)
@@ -748,7 +748,7 @@ Package pdftex.def Info: Events_S1B1000.pdf used on input line 123.
 (pdftex.def)             Requested size: 430.00462pt x 292.74869pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <ProfileLikelihood_S1B1000.pdf, id=30, 569.12625pt x 418.56375pt>
 File: ProfileLikelihood_S1B1000.pdf Graphic file (type pdf)
@@ -758,44 +758,77 @@ Package pdftex.def Info: ProfileLikelihood_S1B1000.pdf used on input line 130.
 (pdftex.def)             Requested size: 430.00462pt x 316.25958pt.
 
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4] <Ex2_threshold.pdf, id=35, 569.12625pt x 387.4475pt>
+File: Ex2_threshold.pdf Graphic file (type pdf)
+
+<use Ex2_threshold.pdf>
+Package pdftex.def Info: Ex2_threshold.pdf used on input line 142.
+(pdftex.def)             Requested size: 430.00462pt x 292.74869pt.
+ [5 <./Ex1_b1.pdf> <./Ex1_b100.pdf>]
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4] [5 <./Ex1_b1.pdf>] [6 <./Ex1_b100.pdf>] [7 <./Events_S1B1000.pdf, page is r
-otated 90 degrees>] [8 <./ProfileLikelihood_S1B1000.pdf, page is rotated 90 deg
-rees>] (./FANTINI_report.aux)
+[6 <./Events_S1B1000.pdf, page is rotated 90 degrees>]
+<brazil_lin.pdf, id=123, 569.12625pt x 387.4475pt>
+File: brazil_lin.pdf Graphic file (type pdf)
+ <use brazil_lin.pdf>
+Package pdftex.def Info: brazil_lin.pdf used on input line 162.
+(pdftex.def)             Requested size: 210.70462pt x 143.442pt.
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+<brazil_log.pdf, id=124, 569.12625pt x 387.4475pt>
+File: brazil_log.pdf Graphic file (type pdf)
+ <use brazil_log.pdf>
+Package pdftex.def Info: brazil_log.pdf used on input line 163.
+(pdftex.def)             Requested size: 210.70462pt x 143.442pt.
 
- ) 
+[7 <./ProfileLikelihood_S1B1000.pdf, page is rotated 90 degrees>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Ex3_B1000S100.pdf, id=172, 569.12625pt x 318.18875pt>
+File: Ex3_B1000S100.pdf Graphic file (type pdf)
+ <use Ex3_B1000S100.pdf>
+Package pdftex.def Info: Ex3_B1000S100.pdf used on input line 170.
+(pdftex.def)             Requested size: 430.00462pt x 240.41795pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8 <./Ex2_threshold.pdf, page is rotated 90 degrees>] [9 <./brazil_lin.pdf, pag
+e is rotated 90 degrees> <./brazil_log.pdf, page is rotated 90 degrees> <./Ex3_
+B1000S100.pdf, page is rotated 90 degrees>] (./FANTINI_report.aux) ) 
 Here is how much of TeX's memory you used:
- 14082 strings out of 493014
- 279292 string characters out of 6133351
+ 14105 strings out of 493014
+ 279738 string characters out of 6133351
  304575 words of memory out of 5000000
- 17492 multiletter control sequences out of 15000+600000
+ 17511 multiletter control sequences out of 15000+600000
  15005 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,8n,58p,10365b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/
-texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on FANTINI_report.pdf (8 pages, 229805 bytes).
+ 38i,8n,58p,10365b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local
+/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/public/cm-super/sfrm1000.pfb>
+Output written on FANTINI_report.pdf (9 pages, 323257 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
+ 405 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -104,38 +104,74 @@ The results of the procedure described in the previous section are reported belo
 %% poisson + poisson = poisson
 %% s = 0 + b = svario --> poisson(svario) --> gauss(svario,sqrt(svario)) --> vale wilks --> WTF!!
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Ex1_b1.pdf}
     \caption{Coverage computation in the low background $(B = 1)$ case. $N_{try} = 10^4$ data samples generated.}
     \label{fig:cov_b1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Ex1_b100.pdf}
     \caption{Coverage computation in the high background $(B = 100)$ case. $N_{try} = 10^4$ data samples generated.}
     \label{fig:cov_b100}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Events_S1B1000.pdf}
     \caption{Example of event generation (blue) and best fit function (red).}
     \label{fig:events_b1000}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{ProfileLikelihood_S1B1000.pdf}
     \caption{Example of profile likelihood $-2log(\mathcal{L}(S,\hat{\hat{B}}))$ as a function of the alternate signal $S$.}
     \label{fig:profileL_b1000}
 \end{figure}
 
+\newpage
+
 \section{The distribution of the log-likelihood ratio}
+In order not to assume the Wilks' approximation is valid or in all the situations in which actually it is not, the only way to compute the proper threshold for the test statistics and, as a consequence, to build the correct frequentist interval at a given $CL$ is to evaluate numerically the distribution of the test statistics and compute from that the desired quantile.
+This is what was done for a sample of $N_{toy} = 10^5$ toy-MC datasets for true values of $B = 1000$ and $S = 100, 1000$ and $N_{toy} =10^6$ for the same background level and $S = 1, 10$. The quantile obtained in this way is reported in Fig. \ref{fig:threshold_b1000}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Ex2_threshold.pdf}
+    \caption{$90\%$ quantile of the distribution of the log-likelihood ratio test statistics $t$ as a function of the injected signal $S (true)$ in a high background condition $B = 1000$. The $t$ distribution was obtained from a sample of $N_{toy} \geq 10^5$ toy-MC datasets.}
+    \label{fig:threshold_b1000}
+\end{figure}
 
 \section{Sensitivity}
 % make brazilian plot
+Knowing (well) the amount of expected background, its shape and the signal shape, it is possible to compute the median sensitivity for limit-setting as a function of the expected (true) signal $S$ at a given confidence level $CL$. This statement can be made more clear: the log likelihood ratio test statistics is well defined given the shape of the signal and background and the signal $S$ for which we wish to compute the sensitivity. Then it is possible to compare the test statistics distribution in two different cases:
+\begin{itemize}
+\item null hypothesis $H_0$: signal $S$ and background $B$
+\item alternate hypothesis $H_1$: background $B$ only
+\end{itemize}
+When performing the \textit{real} experiment one will not know a priori if the sample he extracted came from a universe with \textit{true} signal $S = S_{true}$ or from another one with $S=0$ (obviousely) and will perform an hypothesis test. Fixed a confidence level $CL$, he will reject the null hypothesis (i.e. exclude that particular signal expectation and put a more stringent limit) if the $p$-value of the data (computed assuming the null hypothesis, of course) is below the $1-CL$ threshold. The question the sensitivity analysis is willing to address is: "what  (median) $p$-value would the analyst compute if the background only hypothesis were true?". If this $p$-value is below the $1-CL$ level, the experiment will be (likely) able to put a limit on that signal strength. On the other hand, if the median $p$-value is above $1-CL$ then the experiment is not sensitive enough to that signal strength. That $p$-value is defined as the integral of the probability density function (pdf) of the log likelihood ratio test statistics ($t_S$) for the signal $S$ in the null (signal and background) hypothesis, from the median of the pdf $f(t_S | S_{true}=0)$ of that very same test statistics obtained in the alternate hypothesis, to infinity:
+
+$$ p = \int_{t^*}^\infty f(t_S | S_{true} = S)dt_S \quad \mathrm{where} \quad \int_{-\infty}^{t^*} f(t_S | S_{true} = 0)dt_S = \int^{+\infty}_{t^*} f(t_S | S_{true} = 0)dt_S  $$
+
+Sometimes in order to give an idea of how much the measured $p$-value is allowed to fluctuate around the median one, the so called brazilian plots are shown, where the green area corresponds to $1\sigma$ (i.e. $68.3\%$ probability content) and the yellow area to $2\sigma$ (i.e. $95\%$ probability content) of the $f(t_S|S_{true}=0)$ is shown. A very rough example is given in Fig. \ref{fig:brazil}. 
+Due to the limited size of the sample ($N_{gen} = 10^6$ events) the median $p$-value for $S=100,1000$ is $0$ (and does not appear in the log scale).  This information is sufficient, though, to say that the experiment has a $90\% CL$ median sensitivity for limit setting for $S > 100$.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.49\textwidth]{brazil_lin.pdf} 
+    \includegraphics[width=0.49\textwidth]{brazil_log.pdf}
+    \caption{Sensitivity curve (full circles indicate median $p$-value) for limit setting in high background conditions $B=1000$. The green (yellow) band show the $1\sigma (2\sigma)$ (probability content in the gaussian approximation) expected $p$-values.}
+    \label{fig:brazil}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Ex3_B1000S100.pdf}
+    \caption{Comparison of the log likelihood ratio test statistics $t_s$ for $S=100$ in the null hypothesis ($S_{true}=100$ and $B_{true}=1000$, yellow) and in the alternate hypothesis ($S_{true}=0$ and $B_{true} = 1000$, blue).}
+    \label{fig:overlap_B1000S100N1e6}
+\end{figure}
+
 \end{document}
 
 %---------------------------------------------------------------------------------
