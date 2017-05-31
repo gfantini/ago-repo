@@ -288,12 +288,12 @@ void ComputeCoverage(double CL,double Ns,double Nb,int Ntry,bool debug=false)
 	int i;
 	for(i=0;i<Ntry;i++)
 	{
-		if(debug && i%100 == 0)cout << "[ComputeCoverage] DEBUG: " << i+1 << "/" << Ntry << " iterations." << endl;
+		if(debug && i%100 == 0)cerr << "[ComputeCoverage] DEBUG: " << i+1 << "/" << Ntry << " iterations." << endl;
 		if( CheckCoverage(CL,Ns,Nb) )Nhit++;
 		if( gScanLogL == 0)nfail++;
 	}
 	double c = Nhit/(double)(Ntry-nfail); // coverage
-	cout << Ns << "," << c << endl;
+	cout << "#signal(true) , coveraga = " << Ns << " , " << c << endl;
 	cout << "Coverage error: " << sqrt(c*(1.-c))/sqrt(Ntry-nfail) << endl;
 	cout << "Coverage systematics (#fit-fails/#fit-tot) " << nfail/(double)Ntry << endl;
 }
