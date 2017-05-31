@@ -103,12 +103,17 @@ TGraph ScanLogL(double ExpSignal,double ExpBkg,Double_t& Nsignal_best_fit,bool p
 	// scan the likelihood for the signal
 	vector <double> alternate_signal;
 	vector <double> alternate_fcn;
+	/*
 	double step = TMath::Min(Fs_err/20.,0.5); // define step for scanning likelihood
-	
 	double alternate_signal_tmp = Fs - 10.*Fs_err; // define starting point for scanning likelihood
+	*/
+	double step = Fs_err*6./100.; // define step as 1/100 of range
+	double alternate_signal_tmp = Fs - 3.*Fs_err;
+	double alternate_signal_max = Fs + 3.*Fs_err;
+	
 	if(debug)cout << "[ScanLogL] DEBUG: Fs_err = " << Fs_err << "Fs = " << Fs << endl;
-	if(debug)cout << "[ScanLogL] DEBUG: while: init=" << alternate_signal_tmp << " step=" << step << " max=" << Fs + 10.*Fs_err << endl;
-	while(alternate_signal_tmp < Fs + 10.*Fs_err)
+	if(debug)cout << "[ScanLogL] DEBUG: while: init=" << alternate_signal_tmp << " step=" << step << " max=" << alternate_signal_max<< endl;
+	while(alternate_signal_tmp < alternate_signal_max)
 	{
 		// fix the signal to the alternate_value
 		f_fit.FixParameter(1,alternate_signal_tmp);
