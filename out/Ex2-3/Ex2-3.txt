@@ -17,3 +17,16 @@ root [1] PrintThresholdAndSensitivity(1000,1000,1000,1e5,false,true);
 #B 	1000
 #SB 	1000	2.68302
 #-B 	1000	0		0	0	0	0	
+
+- - - - -
+NUOVI FILES CON SIMULAZIONI AD ALTA STATISTICA 
+- - - - -
+root [2] PrintThresholdAndSensitivity(100,1000,100,1e6,false,true);
+#B 	1000
+#SB 	100	2.70422
+#-B 	100	2.70048e-05	0	0	0	0
+
+root [1] PrintThresholdAndSensitivity(1000,1000,1000,1e6,false,true);
+#B 	1000
+#SB 	1000	2.70415
+#-B 	1000	0		0	0	0	0	
