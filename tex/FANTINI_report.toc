@@ -3,3 +3,5 @@
 \contentsline {subsection}{\numberline {1.2}Results}{4}
 \contentsline {section}{\numberline {2}The distribution of the log-likelihood ratio}{5}
 \contentsline {section}{\numberline {3}Sensitivity}{6}
+\contentsline {section}{\numberline {4}Correlation and biases}{8}
+\contentsline {paragraph}{Comments}{9}

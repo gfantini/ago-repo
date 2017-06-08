@@ -172,6 +172,55 @@ Due to the limited size of the sample ($N_{gen} = 10^6$ events) the median $p$-v
     \label{fig:overlap_B1000S100N1e6}
 \end{figure}
 
+\section{Correlation and biases}
+When a set of parameters is extracted from data it is important to check the correlations between them and to investigate possible biases of the fitting procedure. This was done generating $N_{toy} = 10^4$ datasets in three different conditions from a model defined by the sum of an exponentially decreasing background and two gaussian signals:
+
+$$ f_{true} = (N1)_{true} \: \frac{1}{200} e^{-x/200} + (N2)_{true} \: g(m_{\mu}\cdot 50,m_{\sigma}\cdot 30) + (N3)_{true} \: g(m_{\mu}\cdot 60,m_{\sigma}\cdot 10)$$
+where $x$ is a random variable (the observable), $g(\mu,\sigma)$ is a normalized gaussian distribution of mean $\mu$ and variance $\sigma^2$, and the $m$ coefficients are multipliers used to modify the mean and variance of the distribution in order to investigate the effect of this on the fit result. The generated datasets were always fit with the nominal model (i.e. $m_\mu = 1$ and $m_\sigma = 1$).
+The three conditions taken into account are:
+\begin{itemize}
+\item $m_\mu = 1$ and $m_\sigma = 1$ (i.e. nominal conditions); the results are shown in Fig. \ref{fig:correlation_000}
+\item $m_\mu = 1.01$ and $m_\sigma = 1$ (i.e. $+1\%$ shifted gaussian means, nominal $\sigma$); the results are shown in Fig. \ref{fig:correlation_001}	
+\item $m_\mu = 1$ and $m_\sigma = 1.01$ (i.e. nominal gaussian means, $+1\%$ enlarged $\sigma$); the results are shown in Fig. \ref{fig:correlation_002}
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{../out/Ex4/correlation_005.pdf}
+    \caption{Outcome of the fit of $N_{toy} = 10^4$ generated datasets with $m_\mu = 1$ and $m_\sigma = 1$. In the diagonal plots a gaussian fit (red) is superimposed.}
+    \label{fig:correlation_000}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{../out/Ex4/correlation_006.pdf}
+    \caption{Outcome of the fit of $N_{toy} = 10^4$ generated datasets with $m_\mu = 1.01$ and $m_\sigma = 1$. In the diagonal plots a gaussian fit (red) is superimposed.}
+    \label{fig:correlation_001}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{../out/Ex4/correlation_007.pdf}
+    \caption{Outcome of the fit of $N_{toy} = 10^4$ generated datasets with $m_\mu = 1$ and $m_\sigma = 1.01$. In the diagonal plots a gaussian fit (red) is superimposed.}
+    \label{fig:correlation_002}
+\end{figure}
+
+
+
+\paragraph{Comments}
+The outcome of the fit, $(N1)_{fit}, (N2)_{fit}, (N3)_{fit}$ are random variables themselves, because they float randomly as the dataset changes. The aim of computing the toy Monte Carlo datasets is to properly sample from their distribution in order to understand the details of the fitting procedure. In particular:
+\begin{itemize}
+\item is the fit biased? In other words is $ b_i \doteq E[(Ni)_{fit}] - (Ni)_{true} \quad \mathrm{where} \quad i = 1,2,3$ different from zero?
+\item are the parameters correlated?
+\end{itemize}
+The width of the distribution of the fit outcomes is an indication of the statistical uncertainty on the evaluated parameters.
+In nominal conditions the bias for the number of signal counts is $b_2 = 0$ and $b_3 = 0$.
+The statistical uncertainties are $\sigma_2 = 1.8 \cdot 10^3 \:\mathrm{counts} $ and $\sigma_3 = 8.8 \cdot 10^2 \:\mathrm{counts}$.
+A mismatch between the model used to generate and the one used to fit the data introduces a bias. In fact a shift of $+1 \%$ of the mean value of the distributions used to fit the signal introduces a bias (see Fig. \ref{fig:correlation_001}) $b_2 = -1.6 \cdot 10^2$ and $b_3 = 0$.
+A broadening of $+1\%$ of the standard deviation of both the gaussian distributions used in the fit (see Fig. \ref{fig:correlation_002}) introduces a bias $b_2 = +2 \cdot 10^2 \:\mathrm{counts}$ and $b_3 = 0$.
+
+Since the statistical uncertainty on the $N2$ parameter is one order of magnitude bigger than the bias, in this case the bias can be neglected. In general one can express the uncertainty on a parameter $\theta$ with the \textit{main squared error} (MSE) defined as
+$$ \mathrm{MSE}[\hat{\theta}] = b^2 + \mathrm{Var}^2[\hat{\theta}]$$
+where $\hat{\theta}$ is the estimator of the $\theta$ parameter.
+
 \end{document}
 
 %---------------------------------------------------------------------------------

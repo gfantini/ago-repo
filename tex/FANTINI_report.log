@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.31)  31 MAY 2017 17:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.31)  8 JUN 2017 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -796,39 +796,75 @@ Package pdftex.def Info: Ex3_B1000S100.pdf used on input line 170.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8 <./Ex2_threshold.pdf, page is rotated 90 degrees>] [9 <./brazil_lin.pdf, pag
-e is rotated 90 degrees> <./brazil_log.pdf, page is rotated 90 degrees> <./Ex3_
-B1000S100.pdf, page is rotated 90 degrees>] (./FANTINI_report.aux) ) 
+[8 <./Ex2_threshold.pdf, page is rotated 90 degrees>]
+<../out/Ex4/correlation_005.pdf, id=219, 569.12625pt x 387.4475pt>
+File: ../out/Ex4/correlation_005.pdf Graphic file (type pdf)
+
+<use ../out/Ex4/correlation_005.pdf>
+Package pdftex.def Info: ../out/Ex4/correlation_005.pdf used on input line 189.
+
+(pdftex.def)             Requested size: 430.00462pt x 292.74869pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../out/Ex4/correlation_006.pdf, id=220, 569.12625pt x 387.4475pt>
+File: ../out/Ex4/correlation_006.pdf Graphic file (type pdf)
+
+<use ../out/Ex4/correlation_006.pdf>
+Package pdftex.def Info: ../out/Ex4/correlation_006.pdf used on input line 195.
+
+(pdftex.def)             Requested size: 430.00462pt x 292.74869pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../out/Ex4/correlation_007.pdf, id=221, 569.12625pt x 387.4475pt>
+File: ../out/Ex4/correlation_007.pdf Graphic file (type pdf)
+
+<use ../out/Ex4/correlation_007.pdf>
+Package pdftex.def Info: ../out/Ex4/correlation_007.pdf used on input line 201.
+
+(pdftex.def)             Requested size: 430.00462pt x 292.74869pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./brazil_lin.pdf, page is rotated 90 degrees> <./brazil_log.pdf, page is ro
+tated 90 degrees>] [10 <./Ex3_B1000S100.pdf, page is rotated 90 degrees>]
+[11 <../out/Ex4/correlation_005.pdf, page is rotated 90 degrees>] [12 <../out/E
+x4/correlation_006.pdf, page is rotated 90 degrees>] [13 <../out/Ex4/correlatio
+n_007.pdf, page is rotated 90 degrees>] (./FANTINI_report.aux) ) 
 Here is how much of TeX's memory you used:
- 14105 strings out of 493014
- 279738 string characters out of 6133351
- 304575 words of memory out of 5000000
- 17511 multiletter control sequences out of 15000+600000
+ 14124 strings out of 493014
+ 280286 string characters out of 6133351
+ 305575 words of memory out of 5000000
+ 17526 multiletter control sequences out of 15000+600000
  15005 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,8n,58p,10365b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local
-/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fo
-nts/type1/public/cm-super/sfrm1000.pfb>
-Output written on FANTINI_report.pdf (9 pages, 323257 bytes).
+{/usr/local/tex
+live/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/
+type1/public/cm-super/sfrm1000.pfb>
+Output written on FANTINI_report.pdf (13 pages, 428500 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 209 compressed objects within 3 object streams
+ 550 PDF objects out of 1000 (max. 8388607)
+ 272 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
